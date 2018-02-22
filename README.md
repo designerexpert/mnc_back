@@ -1,12 +1,15 @@
-Knex Configurations / Commands
-    knex init
-    knex migrate:make initial
-    inside: data/dbConfig.js change development to production when ready to deploy
+# Dev Ops Notes:
+1. Knex Configurations / Commands
+    - knex init
+    - knex migrate:make initial
+    - inside: data/dbConfig.js change development to production when ready to deploy
 
-Authentication Configurations
-    Change: config.js secret: before deploying final.
+2. Authentication Configurations
+    - Change: config.js secret: before deploying final.
 
-# Registration: POST
+# API Endpoints: 
+## Registration: 
+### Request Type: POST
 1. Navigate to /register
 2. Provide a user object following this template:
 ```JSON
@@ -23,7 +26,8 @@ Authentication Configurations
 }
 ```
 
-# Login: POST
+## Login:
+### Request Type: POST
 1. Navigate to /login
 2. Provide a user object following this template:
 ```JSON
@@ -49,7 +53,8 @@ Authentication Configurations
 }
 ```
 
-# List Users: Get
+## List Users:
+### Request Type: Get
 1. Navigate to /users
 2. Provide a JWT with the token that was given when the user logged in in the headers Authorization.
 3. A list of users will be returned.
@@ -64,8 +69,9 @@ Authentication Configurations
 }
 ```
 
-# Delete a User: Delete
-1. Navigate to /users [DELETE]
+## Delete a User:
+### Request Type: Delete
+1. Navigate to /users
 2. Provide a user object like the one bellow:
 ```JSON
 {
@@ -76,8 +82,9 @@ Authentication Configurations
 3. Server will return 1 if the user was deleted successfully.
 4. Server will return an error if it was unable to delete the user.
 
-# Update a User's Password: Put
-1. Navigate to /update [PUT]
+## Update a User's Password:
+### Request Type: Put
+1. Navigate to /update
 2. Provide a user object like the one bellow.
 ```JSON
 {

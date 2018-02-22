@@ -28,10 +28,10 @@ const createUser = (req, res) => {
     knex.insert(user)
         .into('users')
         .then(result => {
-            res.json(result);
+            res.json({ message: 'success' });
         })
         .catch(err => {
-            res.status(400).json({ errorMessage: 'unable to register user. Already registered? Try to log-in instead!' });
+            res.status(400).json({ message: 'unable to register user. Already registered? Try to log-in instead!' });
         });
 }
 
