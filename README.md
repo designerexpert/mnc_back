@@ -18,7 +18,10 @@
     "password": "1234"
 }
 ```
-3. Server will return the userID# if successful.
+3. Server will return the following object if successful:
+```JSON
+{ "message": "success" }
+```
 4. Server will return the following error if unsuccessful:
 ```JSON
 {
