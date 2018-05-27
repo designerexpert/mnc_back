@@ -10,7 +10,7 @@ exports.up = function (knex, Promise) {
         }),
         knex.schema.createTable('usersLog', (tbl) => {
             tbl.increments('id').primary().notNullable();
-            tbl.timestamp('acess').defaultTo(knex.fn.now());
+            tbl.timestamp('access').defaultTo(knex.fn.now());
             tbl.integer('userId').references('id').inTable('users').notNullable();
         }),
         // End Users Tables
