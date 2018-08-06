@@ -1,5 +1,6 @@
 const middleware = require('../middlewares/middleware');
 const userControllerMethods = require('../controllers/userControllers');
+const noteControllerMethods = require('../controllers/noteControllers');
 
 module.exports = (app) => {
     app.route('/').get((req, res) => res.json({ message: 'Server Reachable' })); // Default API Endpoint for Testing the Server and Port
@@ -9,5 +10,7 @@ module.exports = (app) => {
     app.route('/users').delete(middleware.checkEmail, middleware.authenticate, userControllerMethods.deleteUser); // Deletes user with specified email and password
 
     app.route('/users').get(middleware.validateToken, userControllerMethods.users); // Shows all Users: ADMIN ROUTE
-    app.route('/users/:id').get(middleware.validateToken, userControllerMethods.userById); // Shows user with specified ID: ADMIN ROUTE    
+    app.route('/users/:id').get(middleware.validateToken, userControllerMethods.userById); // Shows user with specified ID: ADMIN ROUTE
+
+    app.route('/soap').get(middleware.validateToken, noteControllerMethods.soap); // Gets SOAP Note
 };

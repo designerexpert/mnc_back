@@ -5,7 +5,6 @@ const CORS = require('cors');
 const server = express();
 const port = process.env.PORT || 5000;
 
-
 const routes = require('./api/routes/routes');
 
 const corsOptions = {
